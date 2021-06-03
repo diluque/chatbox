@@ -1,1 +1,40 @@
-sdfg
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="main.css">
+  <title>ChatBoxPy</title>
+</head>
+<body>
+  <input id="input" type="text" placeholder="Escribe algo.." autofocus>
+  <button>Enviar</button>
+<p id="output"></p>
+  <script>
+var input = document.querySelector("#input");
+var output = document.querySelector("#output");
+var stringIn = "";
+var stringOut = "";
+var button = document.querySelector("button");
+
+button.addEventListener("click", clickHandler, false);
+
+function clickHandler()
+{
+   stringIn = input.value;
+
+   if(stringIn === "hola")
+   {
+       stringOut = "Hola que tal";
+   }
+
+   if(stringIn === "chau")
+   {
+       stringOut = "Hasta la próxima";
+   }
+output.innerHTML = stringOut;
+}
+  </script>
+</body>
+</html>
