@@ -8,8 +8,10 @@
   <title>ChatBoxPy</title>
 </head>
 <body>
+<h1>Bienvenidos al ChatBoxPy</h1>
+<h3>Como se dice...</h3>
   <input id="input" type="text" placeholder="Escribe algo.." autofocus>
-  <button>Enviar</button>
+  <button>Buscar Música</button>
 <p id="output"></p>
   <script>
 var input = document.querySelector("#input");
@@ -18,22 +20,47 @@ var stringIn = "";
 var stringOut = "";
 var button = document.querySelector("button");
 
+window.addEventListener("keydown", keydownHandler, false);
+
 button.addEventListener("click", clickHandler, false);
+
+function keydownHandler(event) 
+{
+  if(event.keycode === 13)
+{
+  checkInput();
+    }
+}
+
 
 function clickHandler()
 {
-   stringIn = input.value;
+   checkInput();
+}
 
-   if(stringIn === "hola")
-   {
-       stringOut = "Hola que tal";
-   }
+function checkInput()
+{
+  stringIn = input.value;
 
-   if(stringIn === "chau")
-   {
-       stringOut = "Hasta la próxima";
-   }
+if(stringIn === "hola" || stringIn === "Hola" || stringIn === "ola" || stringIn === "Ola")
+{
+    stringOut = "hola como estas";
+}
+
+else if(stringIn === "como estas" || stringIn === "como estás")
+   stringOut = "Yo muy bien gracias, y tú?"
+
+else if(stringIn.includes("bien"))
+{
+    stringOut = "yo muy bien, gracias por preguntar";
+}
+
+else 
+{   stringOut = "No entiendo, intenta escribir correctamente"
+}
 output.innerHTML = stringOut;
+input.value = "";
+input.focus();
 }
   </script>
 </body>
